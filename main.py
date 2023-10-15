@@ -10,8 +10,9 @@ from smtplib import SMTP
 app = Flask(__name__)
 bootstrap = Bootstrap5(app)
 app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'default_secret_key')
-MY_EMAIL = 'p.gurungislington@gmail.com'
+MY_EMAIL = os.environ.get('MY_EMAIL')
 MY_APP_PASSWORD = os.environ.get('MY_APP_PASSWORD')
+TO_ADDRESS = 'pritamgrg47@gmail'
 
 
 class ContactForm(FlaskForm):
@@ -56,25 +57,18 @@ def receive_data():
         # print(contact_number)
         with SMTP("smtp.gmail.com") as server:
             server.starttls()
-            server.login(MY_EMAIL, "dxixvupzpjrqaxcv")
+            server.login(MY_EMAIL, MY_APP_PASSWORD)
             server.sendmail(
-                from_addr='p.gurungislington@gmail.com',
-                to_addrs="pritamgrg47@gmail.com",
+                from_addr=MY_EMAIL,
+                to_addrs=TO_ADDRESS,
                 msg=f"Subject: Client Information\n\nName: {name}\nEmail: {email}\nContact-Number: {contact_number}\nMessage: {service_information}"
             )
         return render_template('contact.html', form=form,sent_message=sent_message, successful_message=successful_message, show_popup=True)
 
-
-
-#
 @app.route('/about')
 def about():
     return render_template("about.html")
 
-# @app.route('/clients')
-# def clients():
-#     clients = Client.query.all()
-#     return render_template("clients_information.html", clients=clients)
 
 @app.route('/services')
 def services():
