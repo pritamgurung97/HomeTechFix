@@ -24,12 +24,10 @@ class ContactForm(FlaskForm):
     submit = SubmitField('Send')
 
 
-
 @app.route('/')
 # Get all the ads in the home page.
 def home():
     return render_template('index.html')
-
 
 @app.route('/contact')
 def contact():
