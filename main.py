@@ -6,10 +6,10 @@ from wtforms.validators import DataRequired
 import os
 from smtplib import SMTP
 
-
 app = Flask(__name__)
 bootstrap = Bootstrap5(app)
-app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'default_secret_key')
+# app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'default_secret_key')
+app.config['SECRET_KEY'] = os.environ.get('FLASK_SECRET_KEY')
 MY_EMAIL = 'p.gurungislington@gmail.com'
 MY_APP_PASSWORD = os.environ.get('MY_APP_PASSWORD')
 
@@ -21,7 +21,6 @@ class ContactForm(FlaskForm):
     service_information = TextAreaField('Service Information', validators=[DataRequired()])
     adverts_username = StringField('Adverts Username')
     submit = SubmitField('Send')
-
 
 
 @app.route('/')
@@ -62,13 +61,14 @@ def receive_data():
                 to_addrs="pritamgrg47@gmail.com",
                 msg=f"Subject: Client Information\n\nName: {name}\nEmail: {email}\nContact-Number: {contact_number}\nMessage: {service_information}"
             )
-        return render_template('contact.html', form=form,sent_message=sent_message, successful_message=successful_message, show_popup=True)
-
+        return render_template('contact.html', form=form, sent_message=sent_message,
+                               successful_message=successful_message, show_popup=True)
 
 
 @app.route('/about')
 def about():
     return render_template("about.html")
+
 
 # @app.route('/clients')
 # def clients():
