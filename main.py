@@ -12,7 +12,7 @@ bootstrap = Bootstrap5(app)
 app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'default_secret_key')
 MY_EMAIL = os.environ.get('MY_EMAIL')
 MY_APP_PASSWORD = os.environ.get('MY_APP_PASSWORD')
-TO_ADDRESS = 'pritamgrg47@gmail'
+TO_ADDRESS = os.environ.get('TO_ADDRESS')
 
 
 class ContactForm(FlaskForm):
