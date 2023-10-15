@@ -1,0 +1,77 @@
+{% include 'header.html' %}
+<body>
+  <div class="container">
+    <h1 class="text-center pb-2">Services & Pricing</h1>
+
+    <div class="row">
+      <div class="pb-4 col-md-4 col-sm-4">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/windows.jpg') }}" class="card-img-top" alt="windows/os">
+          <div class="card-body">
+            <h5 class="card-title">Windows/OS Installation</h5>
+            <p class="card-text">- Windows 10/11 Home Installation: €35/- <br> - Windows 10/11 Pro Installation: 55€/- </p>
+          </div>
+        </div>
+      </div>
+      <div class="pb-4 col-md-4 col-sm-4">
+        <div class="card">
+          <img src="static/images/laptop-service.jpg" class="card-img-top" alt="Laptop">
+          <div class="card-body">
+            <h5 class="card-title">Laptop Service Package(All for €40/-)</h5>
+            <p class="card-text">- Thermal paste replacement for Cooling Systems<br>- Dust Removal and Laptop Cleaning</p>
+          </div>
+        </div>
+      </div>
+      <div class="pb-4 col-md-4 col-sm-4">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/ssd-replacement.jpg') }}" class="card-img-top" alt="ssd">
+          <div class="card-body">
+            <h5 class="card-title">SSD Replacement</h5>
+            <p class="card-text"> - 512GB SATA SSD for 75€ <br>- 1TB SATA SSD for €105/-</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 col-sm-4">
+        <div class="card">
+          <img src="{{ url_for('static',filename='images/ps4-servicing.jpg') }}" class="card-img-top" alt="ps4">
+          <div class="card-body">
+            <h5 class="card-title">PS-4 Console Servicing(All for €45/-)</h5>
+            <p class="card-text">- Playstation servicing thermal paste replacement <br>- Deep cleaning dust removal</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <div class="card">
+          <img src="{{ url_for('static',filename='images/ram-upgrade.jpg') }}" class="card-img-top" alt="ram-upgrade">
+          <div class="card-body">
+            <h5 class="card-title">RAM Upgrade</h5>
+            <p class="card-text">- Currently unavailable <br>- Coming Soon</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/data-recovery.jpg') }}" class="card-img-top" alt="data-recovery">
+          <div class="card-body">
+            <h5 class="card-title">Data Recovery/Data Migration</h5>
+            <p class="card-text">- Currently Unavailable <br>- Coming Soon</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <h2>Additional Information</h2>
+    <p>Kindly choose a service from the options provided and complete the <a href="{{ url_for('contact') }}">Contact</a> form. Our team will promptly reach out to you to schedule an appointment. Please note that we can only accommodate a maximum of 10 orders per day. If our schedule for the current day is fully booked, we will schedule your appointment for the following day. </p>
+
+    <!-- Add additional sections as needed -->
+
+  </div>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

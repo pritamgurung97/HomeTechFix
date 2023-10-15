@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Client's Information</title>
+</head>
+<body>
+  {% for client in clients: %}
+    <p> Client Name: {{client.name}} Client Email: {{client.email}} Client Message: {{client.message}} </p>
+  {% endfor %}
+
+</body>
+</html>
