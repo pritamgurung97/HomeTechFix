@@ -9,7 +9,7 @@ from smtplib import SMTP
 
 app = Flask(__name__)
 bootstrap = Bootstrap5(app)
-app.secret_key = 'Ireland1@'
+app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'default_secret_key')
 MY_EMAIL = 'p.gurungislington@gmail.com'
 MY_APP_PASSWORD = os.environ.get('MY_APP_PASSWORD')
 
